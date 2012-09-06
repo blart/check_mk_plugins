@@ -23,6 +23,8 @@ def parse_session_stats(session_stats):
 	json = json.load(io)
 	return json
 
+def main():
+	session_stats = parse_session_stats(get_session_stats())
+	pprint session_stats
 
-
-
+main()
