@@ -8,18 +8,21 @@ import json
 import subprocess
 from StringIO import StringIO
 
-cli = "/usr/local/zeus/zxtm/zcli"
-cli_argument = "stats session"
+cli = "/usr/local/zeus/zxtm/bin/zcli"
+cli_argument = "stats session\n"
 
 def get_session_stats():
 	session_stats = ""
-	p = subprocess.Popen([cli], stdout=PIPE, stdin=PIPE, stderr=PIPE)
+	p = subprocess.Popen([cli, "--json"], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
 	p.stdin.write(cli_argument)
 	session_stats = p.stdout.readline()
 	return session_stats
 
 def parse_session_stats(session_stats):
 	io = StringIO(session_stats)
-	json.load(io)
+	json = json.load(io)
+	return json
+
+
 
 
