@@ -1,4 +1,4 @@
-#!/usr/bin/env python26
+#!/usr/bin/python26
 
 """ VMware Host Metrics """
 
@@ -113,6 +113,7 @@ def parse_results(result,metric):
                 status_level="OK"
 
             short_str = "%0.2f%% (%0.2fGHz used)" % (cpu_perc, (cpu_usage/1024)) # format from MHz->GHz for readability
+            perc = cpu_perc
 
         elif metric == "mem":
             [mem_perc, mem_usage] = parse_mem_results(result)
@@ -124,8 +125,9 @@ def parse_results(result,metric):
                 status_level="OK"
 
             short_str = "%0.2f%% (%0.2fGb used)" % (mem_perc, (mem_usage/1024)) # format from Mb->Gb for readability
+            perc = mem_perc
 
-        perf_data = vi_metrics_status[metric][0] % (0, vi_thresholds[metric][0], vi_thresholds[metric][1])
+        perf_data = vi_metrics_status[metric][0] % (perc, vi_thresholds[metric][0], vi_thresholds[metric][1])
         
         status_string = vi_metrics_status[metric][1] % (status_level, short_str)
 
