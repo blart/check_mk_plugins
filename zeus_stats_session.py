@@ -25,6 +25,6 @@ def parse_session_stats(session_stats):
 
 def main():
 	session_stats = parse_session_stats(get_session_stats())
-	pprint session_stats
+	pprint(session_stats)
 
 main()
