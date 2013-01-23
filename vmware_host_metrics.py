@@ -134,8 +134,7 @@ def parse_results(result,metric):
         return [status_level, perf_data, status_string]
 
 def help():
-    print "./vmware_host_metrics.py esxi_host_name metric"
-    print "Accepted metrics: %s" % ', '.join(map(str, vi_metrics_accepted))
+    print "Usage: ./vmware_host_metrics.py esxi_host_name metric | Accepted metrics: %s" % ', '.join(map(str, vi_metrics_accepted))
     sys.exit(vi_nagios_status["UNKNOWN"])
 
 # Main run of the script.
