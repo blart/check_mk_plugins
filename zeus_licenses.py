@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-""" Zeus Load Balancer license checker for check_mk """
+""" Zeus Load Balancer license checker for check_mk
+    Deploy to /usr/lib/check_mk_agent/local/zeus_licenses.py
+"""
 
 import sys
 import os
